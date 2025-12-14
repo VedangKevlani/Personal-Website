@@ -1,0 +1,45 @@
+.linkedin-video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.video-card {
+  width: 300px;
+  text-align: center;
+}
+
+.video-poster {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
+
+.linkedin-modal .video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.linkedin-modal .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
