@@ -111,7 +111,7 @@ const videos = [
   },
   {
     title: 'Taino Heritage Site: Web Experience for Cultural Preservation (Demo in Post)',
-    link: 'https://www.linkedin.com/embed/feed/update/urn:li:activity:7374209400091070467',
+    link: 'https://www.linkedin.com/feed/update/urn:li:activity:7374209400091070467/?originTrackingId=6NdKf81tTzSJj2R7nbxWnA%3D%3D',
     thumbnail: '/taino.jpg',
   },
   {
