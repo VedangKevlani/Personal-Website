@@ -34,15 +34,28 @@ export default function SideMenu() {
 
   return (
 <nav className="side-menu">
+  <span
+    className="side-menu-indicator"
+    style={{ transform: `translateY(${sections.findIndex(s => s.id === active) * 2.4}rem)` }}
+  />
+
   {sections.map(section => (
     <a
       key={section.id}
       href={`#${section.id}`}
       className={active === section.id ? 'active' : ''}
+      onClick={(e) => {
+        e.preventDefault()
+        document
+          .getElementById(section.id)
+          ?.scrollIntoView({ behavior: 'smooth' })
+      }}
     >
       {section.label}
     </a>
   ))}
 </nav>
+
+
   )
 }

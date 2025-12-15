@@ -21,7 +21,6 @@ export default function ProjectModal({ project, onClose }) {
             <iframe
               src={project.videoLink}
               title={project.title}
-              frameBorder="0"
               allow="autoplay; encrypted-media; fullscreen"
               allowFullScreen
             ></iframe>

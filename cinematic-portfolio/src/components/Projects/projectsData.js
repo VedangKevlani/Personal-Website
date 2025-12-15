@@ -118,6 +118,11 @@ const videos = [
     title: 'Finny: Budgeting and Financial Literacy App (Demo in Post)',
     link: 'https://www.linkedin.com/embed/feed/update/urn:li:activity:7277796671449665538',
     thumbnail: '/finny.jpg',
+  },
+  {
+    title: 'Project OnePot: Vincent Hosang Venture Finals (Demo in Post)',
+    link: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7305388739852193793',
+    thumbnail: '/onepot.png',
   }
 ]
 

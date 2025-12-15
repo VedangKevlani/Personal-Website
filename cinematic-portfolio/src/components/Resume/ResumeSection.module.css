@@ -1,29 +1,90 @@
 .resumeSection {
-  background-color: var(--bg-panel);
-  padding: 3rem 2rem;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8rem 10vw;
+  position: relative;
+}
+
+/* Centered content block */
+.inner {
+  max-width: 560px;
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.resumeSection h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.resumeSection p {
+/* Subtle intro line */
+.kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--text-muted);
-  margin-bottom: 1.5rem;
 }
 
+/* Strong but calm */
+.title {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+/* Smooth readable body */
+.description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* Button – authoritative, not loud */
 .downloadButton {
-  padding: 0.5rem 1.2rem;
-  border: 1px solid var(--accent);
+  margin-top: 1.5rem;
+  align-self: center;
+
+  padding: 0.75rem 1.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
   color: var(--text-main);
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background: transparent;
+
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+
+  backdrop-filter: blur(6px);
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
 .downloadButton:hover {
-  background-color: var(--accent);
-  color: var(--bg-panel);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.downloadButton:active {
+  transform: translateY(0);
+}
+
+.resumeSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      600px 200px at 50% 50%,
+      rgba(107,124,255,0.08),
+      transparent 60%
+    );
+  pointer-events: none;
 }

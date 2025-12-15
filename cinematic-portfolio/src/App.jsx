@@ -5,7 +5,6 @@ import ThemeLock from './components/ThemeLock/ThemeLock';
 import SideMenu from './components/SideMenu/SideMenu';
 import BackToTop from './components/BackToTop/BackToTop';
 import Hero from './components/Hero/Hero';
-import { logPageVisit } from './utils/analytics';
 
 // Lazy-loaded components
 const AmbientBackground = lazy(() => import('./components/Ambient/AmbientBackground'));
@@ -21,15 +20,10 @@ const Contact = lazy(() => import('./components/Contact/Contact'));
 function App() {
   const [stepperCompleted, setStepperCompleted] = React.useState(false);
 
-  useEffect(() => {
-    logPageVisit('Home');
-  }, []);
-
   return (
     <div className="min-h-screen bg-black text-white">
-      <Ambient />
-      <ThemeLock />
-
+      <AmbientBackground />
+      <AnimatedLines />
       {/* Stepper appears first */}
       <div className="container mx-auto px-4 z-50 relative">
         {!stepperCompleted ? (

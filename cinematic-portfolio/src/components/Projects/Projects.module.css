@@ -104,3 +104,29 @@
   cursor: pointer;
 }
 
+.linkedinWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.linkedinThumbnail {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.viewLinkedIn {
+  padding: 0.5rem 1rem;
+  background-color: #0a66c2; /* LinkedIn blue */
+  color: #fff;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.viewLinkedIn:hover {
+  background-color: #004182;
+}

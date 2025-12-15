@@ -1,10 +1,51 @@
 :root {
---bg-dark: #0b0e14;        /* Deep night */
---bg-panel: #111827;      /* Subtle elevation */
---text-main: #e5e7eb;     /* Soft white */
---text-muted: #9ca3af;   /* Intelligence gray */
---accent: #6b7cff;       /* Cold indigo */
+  --bg-dark: #0b0e14;
+  --bg-panel: #111827;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --accent: #6b7cff;
+
+  --transition-speed: 0.25s;
+
+  --toggle-bg: rgba(0, 0, 0, 0.02);
+  --toggle-border: rgba(0, 0, 0, 0.2);
+  --toggle-text: #111;
 }
+
+
+html[data-theme='dark'] {
+  --toggle-bg: rgba(255, 255, 255, 0.04);
+  --toggle-border: rgba(255, 255, 255, 0.2);
+  --toggle-text: #f5f5f5;
+}
+
+
+/* DARK (default) */
+html[data-theme='dark'] {
+  --bg-main: #0b0e14;
+  --bg-panel: #111827;
+  --text-main: #e5e7eb;
+  --text-muted: #9ca3af;
+  --accent: #6b7cff;
+}
+
+/* LIGHT */
+html[data-theme='light'] {
+  --bg-main: #f9fafb;
+  --bg-panel: #ffffff;
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --accent: #4338ca;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition:
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
 
 * {
   margin: 0;
@@ -13,8 +54,6 @@
 }
 
 body {
-  background-color: var(--bg-dark);
-  color: var(--text-main);
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -24,8 +63,13 @@ section {
 }
 
 section {
-  background: linear-gradient(135deg, #0b0e14 0%, #111827 100%);
+  background: linear-gradient(
+    135deg,
+    var(--bg-main) 0%,
+    var(--bg-panel) 100%
+  );
 }
+
 
 .shadow-lg {
   box-shadow: 0 8px 30px rgba(0,0,0,0.7);
@@ -35,6 +79,16 @@ section {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
   20%, 22%, 24%, 55% { opacity: 0.3; }
 }
+
+.card {
+  background: var(--bg-panel);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+html[data-theme='dark'] .card {
+  border-color: rgba(255,255,255,0.1);
+}
+
 
 .animate-flicker {
   animation: flicker 2s infinite;
@@ -47,3 +101,109 @@ section {
 .animate-[scanline_6s_linear_infinite] {
   animation: scanline 6s linear infinite;
 }
+
+.theme-toggle {
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  border: 1px solid var(--toggle-border);
+}
+
+
+.theme-toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 1000;
+
+  padding: 0.6rem 1.1rem;
+
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 999px;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Hover: subtle authority */
+.theme-toggle:hover {
+  color: var(--text-main);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateY(-1px);
+}
+
+/* Active click */
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+html[data-theme='light'] .theme-toggle {
+  border-color: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+:root {
+  --border-subtle: rgba(0, 0, 0, 0.15);
+}
+
+html[data-theme='dark'] {
+  --border-subtle: rgba(255, 255, 255, 0.15);
+}
+
+
+/* Optional glow (very subtle, cinematic) */
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  opacity: 0;
+  box-shadow: 0 0 12px var(--accent);
+  transition: opacity 0.25s ease;
+}
+
+.theme-toggle:hover::after {
+  opacity: 0.15;
+}
+
+/* Stepper – Previous button */
+button[data-stepper="back"],
+button:has(svg[data-stepper-back]) {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  background: var(--accent);
+  color: var(--text-main);
+
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.2s ease;
+}
+
+button[data-stepper="back"]:hover {
+  color: var(--text-main);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+button[data-stepper="back"]:active {
+  transform: translateY(0);
+}
+

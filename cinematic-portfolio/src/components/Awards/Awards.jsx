@@ -1,8 +1,7 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import styles from './Awards.module.css'
 const awards = [
   {
-    title: 'Intellibus AI Hackathon Top 12',
+    title: 'Intellibus AI Hackathon Top 12: Fixing Broken Experiences',
     issuer: 'Intellibus',
     year: '2025'
   },
@@ -12,40 +11,34 @@ const awards = [
     year: '2025'
   },
   {
-    title: 'Computing Honors Society Inductee',
+    title: 'UWI Mona Computing Honors Society Inductee',
     issuer: 'University of the West Indies',
     year: '2025'
   },
-  {
-    title: '1st Place - JAIA Christmas Hackathon',
-    issuer: 'JAIA',
-    year: '2024'
-  },
-  {
+    {
     title: 'Venture Finalist - Vincent Hosang Business Model Competition',
     issuer: 'MSBM, University of the West Indies',
-    year: '2024-2025'
+    year: '2025'
+  },
+  {
+    title: '1st Place - JAIA Christmas Hackathon: Financial Literacy',
+    issuer: 'JAIA',
+    year: '2024'
   }
 ]
 
-export default function Awards({ id }) {
+export default function Awards() {
   return (
-    <section id={id} className="my-16">
-      <h2 className="text-3xl font-bold mb-12 text-accent text-center">Awards</h2>
-      <div className="pt-48 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        {awards.map((award, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-            className="p-6 bg-panel rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-500 text-center"
-          >
-            <h3 className="text-xl font-semibold text-text-main">{award.title}</h3>
-            <p className="text-text-muted">{award.issuer}</p>
-            <p className="mt-1">{award.year}</p>
-          </motion.div>
+    <section id="awards" className={styles.section}>
+      <h2 className={`cursor-target ${styles.heading}`}>Intel Recovered</h2>
+
+      <div className={styles.grid}>
+        {awards.map((award, i) => (
+          <div key={i} className={styles.card}>
+            <span className={styles.year}>{award.year}</span>
+            <h3>{award.title}</h3>
+            <p>{award.issuer}</p>
+          </div>
         ))}
       </div>
     </section>
