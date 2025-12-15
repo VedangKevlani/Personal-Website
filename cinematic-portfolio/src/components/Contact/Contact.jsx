@@ -25,18 +25,12 @@ export default function Contact({ id }) {
                 </a>
               </li>
               <li>
-                <a>
-                  Languages Spoken: English, Hindi, Sindhi, Spanish
-                </a>
-              </li>
-
-              <li>
                 <a
                   href="https://www.linkedin.com/in/vedang-kevlani/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  LinkedIn
+                  My LinkedIn
                 </a>
               </li>
 
@@ -46,7 +40,7 @@ export default function Contact({ id }) {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  GitHub
+                  My GitHub
                 </a>
               </li>
             </ul>
