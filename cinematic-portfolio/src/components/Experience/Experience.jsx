@@ -26,6 +26,11 @@ const experienceData = [
     role: 'Data Science Trainee',
     company: 'StarApple AI',
     year: '2023-2024',
+  },
+  {
+    role: 'Information Technology Intern',
+    company: 'Cool Corp',
+    year: '2023',
   }
 ]
 
