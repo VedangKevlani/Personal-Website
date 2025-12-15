@@ -72,6 +72,7 @@ const projects = [
     thumbnail: '/finny.jpg',
     description:
       'An assistant to help users track expenses, set goals, and improve financial literacy.',
+    projectLink: 'https://finnovators.netlify.app/',
       outcomes: [
       'Interactive budgeting tools',
       'Goal tracking system',
